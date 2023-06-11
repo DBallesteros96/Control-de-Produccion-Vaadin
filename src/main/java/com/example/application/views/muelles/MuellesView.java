@@ -21,9 +21,12 @@ import java.awt.*;
 
 @PageTitle("Muelles")
 @Route(value = "Muelles", layout = MainLayout.class)
-public class MuellesView extends HorizontalLayout {
+public class MuellesView extends VerticalLayout {
 
     public MuellesView() {
+
+        HorizontalLayout contenedorHorizontalAgregaMuelles = new HorizontalLayout();
+        VerticalLayout contenedorVerticalEstadisticas = new VerticalLayout();
 
         /*
         //Layout Fila1
@@ -131,8 +134,20 @@ public class MuellesView extends HorizontalLayout {
         Button enviarRNH68 = new Button("Añadir...");
         columna2.setHeight(columna3.getHeight());
 
+
+        //Layout ContenedorHorizontalAgregaMuelles
+        contenedorHorizontalAgregaMuelles.add(columna1, columna2, columna3);
+        contenedorHorizontalAgregaMuelles.setHeight("450px");
+        contenedorHorizontalAgregaMuelles.getStyle().set("border", "1px solid #9E9E9E");
+
+        //Layout ContenedorHorizontalEstadisticas
+        H1 tituloEstadisticas = new H1("Estadísticas");
+        contenedorVerticalEstadisticas.add(tituloEstadisticas);
+
         //Layout Principal
-        add(columna1, columna2, columna3);
+        H1 tituloProduccion = new H1("Producción");
+        add(tituloProduccion, contenedorHorizontalAgregaMuelles, contenedorVerticalEstadisticas);
+
 
     }
 
