@@ -15,7 +15,9 @@ public class InfoPiezasView extends VerticalLayout {
 
     public InfoPiezasView() {
         //Título
-        H2 tituloMuelles = new H2("Muelles");
+        H1 tituloMuelles = new H1("Muelles");
+        H2 tituloMecanico = new H2("Mecánico");
+        H2 tituloHidraulico = new H2("Hidráulico");
 
         //Contenedores Muelles
         HorizontalLayout contenedorRNM68 = new HorizontalLayout();
@@ -31,7 +33,7 @@ public class InfoPiezasView extends VerticalLayout {
 
         contenedorRNM68.add(contenedorFotoRNM68, contenedorDescripcionRNM68);
 
-        add(tituloMuelles, contenedorRNM68);
+        add(tituloMuelles, tituloMecanico, contenedorRNM68, tituloHidraulico);
     }
 
 }
