@@ -7,11 +7,13 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
@@ -141,11 +143,12 @@ public class MuellesView extends VerticalLayout {
         contenedorHorizontalAgregaMuelles.getStyle().set("border", "1px solid #9E9E9E");
 
         //Layout ContenedorHorizontalEstadisticas
-        H1 tituloEstadisticas = new H1("Estadísticas");
+        HorizontalLayout seleccionEstadisticas = new HorizontalLayout();
+        H2 tituloEstadisticas = new H2("Estadísticas");
         contenedorVerticalEstadisticas.add(tituloEstadisticas);
 
         //Layout Principal
-        H1 tituloProduccion = new H1("Producción");
+        H2 tituloProduccion = new H2("Producción");
         add(tituloProduccion, contenedorHorizontalAgregaMuelles, contenedorVerticalEstadisticas);
 
 

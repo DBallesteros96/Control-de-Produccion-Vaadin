@@ -4,6 +4,7 @@ import com.example.application.components.appnav.AppNav;
 import com.example.application.components.appnav.AppNavItem;
 import com.example.application.views.about.AboutView;
 import com.example.application.views.controldeproducción.ControldeProducciónView;
+import com.example.application.views.infoPiezas.InfoPiezasView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -58,6 +59,7 @@ public class MainLayout extends AppLayout {
         nav.addItem(
                 new AppNavItem("Control de Producción", ControldeProducciónView.class, LineAwesomeIcon.FILE.create()));
         nav.addItem(new AppNavItem("About", AboutView.class, LineAwesomeIcon.FILE.create()));
+        nav.addItem(new AppNavItem("Info Piezas", InfoPiezasView.class, LineAwesomeIcon.FILE.create()));
 
         return nav;
     }
