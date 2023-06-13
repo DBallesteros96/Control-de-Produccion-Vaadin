@@ -29,7 +29,7 @@ public class InfoPiezasView extends VerticalLayout {
                 "de resortes que una vez accionados manualmente por medio de una cadena elevan la plataforma y extienden el labio.");
 
         descripcionMecanicos.add(/*añadir foto*/tituloMecanico, textoMecanicos);
-
+        
         Details detallesMecanico = new Details("Detalles Muelles Mecánico"/*Probar a añadir aquí imagen con la tabla web ROPER*/);
 
         contenedorMecanicos.add(descripcionMecanicos, detallesMecanico);
