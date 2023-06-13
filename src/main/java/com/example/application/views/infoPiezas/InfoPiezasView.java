@@ -2,6 +2,7 @@ package com.example.application.views.infoPiezas;
 
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.Text;
+import com.vaadin.flow.component.details.Details;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -19,21 +20,36 @@ public class InfoPiezasView extends VerticalLayout {
         H2 tituloMecanico = new H2("Mecánico");
         H2 tituloHidraulico = new H2("Hidráulico");
 
-        //Contenedores Muelles
-        HorizontalLayout contenedorRNM68 = new HorizontalLayout();
-        VerticalLayout contenedorFotoRNM68 = new VerticalLayout();
-        VerticalLayout contenedorDescripcionRNM68 = new VerticalLayout();
-        contenedorDescripcionRNM68.setWidth("800px");
-        H3 tituloRNM68= new H3("RNM68");
-        Text textoRNM68 = new Text("La Rampa Niveladora Mecánica presenta las mismas capacidades de resistencia y maniobrabilidad " +
+        //Contenedores Muelles Mecánicos
+        VerticalLayout contenedorMecanicos = new VerticalLayout();
+        HorizontalLayout descripcionMecanicos = new HorizontalLayout();
+        //Añadir foto al layout descripcionRNM68
+        Text textoMecanicos = new Text("La Rampa Niveladora Mecánica presenta las mismas capacidades de resistencia y maniobrabilidad " +
                 "que su homóloca la hidráulica con la diferencia de su sistema de elevación que consiste en un dispositivo articulado " +
                 "de resortes que una vez accionados manualmente por medio de una cadena elevan la plataforma y extienden el labio.");
 
-        contenedorDescripcionRNM68.add(tituloRNM68, textoRNM68);
+        descripcionMecanicos.add(/*añadir foto*/tituloMecanico, textoMecanicos);
 
-        contenedorRNM68.add(contenedorFotoRNM68, contenedorDescripcionRNM68);
+        Details detallesMecanico = new Details("Detalles Muelles Mecánico"/*Probar a añadir aquí imagen con la tabla web ROPER*/);
 
-        add(tituloMuelles, tituloMecanico, contenedorRNM68, tituloHidraulico);
+        contenedorMecanicos.add(descripcionMecanicos, detallesMecanico);
+        contenedorMecanicos.getStyle().set("border", "1px solid #9E9E9E");
+
+        //Contenedor Muelles Hidráulicos
+        VerticalLayout contenedorHidraulicos = new VerticalLayout();
+        HorizontalLayout descripcionHidraulicos = new HorizontalLayout();
+        //Añadir foto al layout descripcionRNM68
+        Text textoHidraulico = new Text("Descripción muelles Hidráulicos");
+
+        descripcionHidraulicos.add(/*añadir foto*/tituloHidraulico, textoHidraulico);
+
+        Details detallesHidraulico = new Details("Detalles Muelles Hidráulicos"/*Probar a añadir aquí imagen con la tabla web ROPER*/);
+
+        contenedorHidraulicos.add(descripcionHidraulicos, detallesHidraulico);
+        contenedorHidraulicos.getStyle().set("border", "1px solid #9E9E9E");
+
+        //Layout Principal
+        add(tituloMuelles, tituloMecanico, contenedorMecanicos, tituloHidraulico, contenedorHidraulicos);
     }
 
 }

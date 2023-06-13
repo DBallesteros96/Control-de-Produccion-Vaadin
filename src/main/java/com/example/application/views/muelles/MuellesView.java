@@ -4,6 +4,8 @@ import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.board.Board;
 import com.vaadin.flow.component.board.Row;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.combobox.MultiSelectComboBox;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
@@ -143,9 +145,32 @@ public class MuellesView extends VerticalLayout {
         contenedorHorizontalAgregaMuelles.getStyle().set("border", "1px solid #9E9E9E");
 
         //Layout ContenedorHorizontalEstadisticas
-        HorizontalLayout seleccionEstadisticas = new HorizontalLayout();
+        HorizontalLayout layoutSeleccionEstadisticas = new HorizontalLayout();
+        //Selección simple. Selección tipo de muelle
+        ComboBox<String> comboBoxSeleccionTipoMuelle = new ComboBox<>("Tipo Muelle");
+        comboBoxSeleccionTipoMuelle.setItems("Mecánico", "Hidráulico");
+        //Selección múltiple. Selección tamaño de muelle
+
+        //Cambiar... No se actualiza comboBox
+        MultiSelectComboBox<String> comboBoxSeleccionTamañoMuelle = new MultiSelectComboBox<>("Tamaño Muelle");
+
+        comboBoxSeleccionTipoMuelle.addValueChangeListener(valueChangeEvent -> {
+            String tipoMuelle = String.valueOf(comboBoxSeleccionTipoMuelle.getElement());
+            if(tipoMuelle.equals("Mecánico")){
+                comboBoxSeleccionTamañoMuelle.setItems("RNM68");
+            }
+        });
+
+
+
+        layoutSeleccionEstadisticas.add(comboBoxSeleccionTipoMuelle, comboBoxSeleccionTamañoMuelle);
+        layoutSeleccionEstadisticas.getStyle().set("border", "1px solid #9E9E9E");
+
+
+        //Añadir al layout de estadísticas
         H2 tituloEstadisticas = new H2("Estadísticas");
-        contenedorVerticalEstadisticas.add(tituloEstadisticas);
+
+        contenedorVerticalEstadisticas.add(tituloEstadisticas, layoutSeleccionEstadisticas);
 
         //Layout Principal
         H2 tituloProduccion = new H2("Producción");
